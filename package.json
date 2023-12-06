@@ -1,0 +1,15 @@
+{
+  "name": "html-css",
+  "version": "1.0.0",
+  "description": "HTML5 e CSS3 projects",
+  "main": "index.html",
+  "homepage": "https://regisnd.github.io/html-css",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },  
+  "autor": "Regis ND",
+  "license": "MIT",
+  "dependencies": {
+    "gh-pages": "^6.1.0"
+  }
+}
