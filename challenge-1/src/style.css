@@ -14,7 +14,7 @@
 
 
 body {
-    background-color: #fff;
+    background-color: var(--cor0);
     width: 100vw;
     height: 100vh;
     max-width: 100%;
@@ -44,7 +44,7 @@ body {
                 position: relative;
                 width: 25px;
                 height: 105px;
-                background-color: #fff;
+                background-color: var(--cor0);
                 border-radius: 3px;
                 transform: translateX(10px);
                 box-shadow: var(--box-shadow);
@@ -52,7 +52,7 @@ body {
                 &::before {
                     content: '';
                     position: absolute;
-                    background-color: #fff;
+                    background-color: var(--cor0);
                     border-radius: 4px;
                     display: inline-block;
                     width: 20px;
@@ -67,7 +67,7 @@ body {
                 width: 105px;
                 height: 105px;
                 border-radius: 50%;
-                border: 25px solid #fff;
+                border: 25px solid var(--cor0);
                 box-shadow: var(--box-shadow);
                 z-index: -1;
 
@@ -93,7 +93,7 @@ body {
                 text-shadow: var(--text-shadow);
                 font-weight: 600;
                 line-height: 4rem;
-                color: #fff;
+                color: var(--cor0);
                 margin-top: 7px;
             }
 
@@ -101,11 +101,11 @@ body {
                 font-family: 'Courier New', monospace;
                 font-size: 1.65rem;
                 font-weight: bolder;
-                color: #fff;
+                color: var(--cor0);
                 text-align: center;
                 text-shadow: var(--text-shadow);
                 margin-top: 0;
-                transform: translateX(-3px);   
+                transform: translateX(-3px);  
             }
         }
     }
