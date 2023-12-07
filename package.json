@@ -6,7 +6,7 @@
   "homepage": "https://regisnd.github.io/html-css",
   "scripts": {
     "deploy": "gh-pages -d dist"
-  },  
+  },
   "autor": "Regis ND",
   "license": "MIT",
   "dependencies": {
