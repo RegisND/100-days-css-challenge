@@ -1,9 +1,8 @@
 :root {
     --cor0: #fff;
-    --cor1: #433ca0;
-    --cor2: #4dc2c9;
-    --box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
-    --text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
+    --cor1: #43389f;
+    --cor2: #4ec6ca;
+    --box-shadow: 0px 0px 13px 0 rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -14,99 +13,111 @@
 
 
 body {
+    position: relative;
     background-color: var(--cor0);
     width: 100vw;
     height: 100vh;
     max-width: 100%;
     max-height: 100%;
-    position: relative;
 
-    .center {
+    .frame {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
         width: 400px;
         height: 400px;
-        background: linear-gradient(45deg, var(--cor1), var(--cor2));
+        margin-top: -200px;
+        margin-left: -200px;
+        background: var(--cor1);
+        background: -webkit-linear-gradient(bottom left, var(--cor1) 0%, var(--cor2)) 100%;
+        background: -moz-linear-gradient(bottom left, var(--cor1) 0%, var(--cor2) 100%);
+        background: -o-linear-gradient(bottom left, var(--cor1) 0%, var(--cor2) 100%);
+        background: linear-gradient(to top right, var(--cor1) 0%, var(--cor2) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=var(--cor1), endColorstr=var(--cor2),GradientType=1);
         border-radius: 4px;
         padding: 5px;
         box-shadow: var(--box-shadow);
+        font-family: 'Courier New', 'Courier', sans-serif;
+        color: var(--cor0);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
 
-        .number-container {
-            width: 100%;
-            height: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
+        .center {
+            position: absolute;
+            top: 50.8%;
+            left: 50.5%;
+            transform: translate(-50%, -50%);
 
-            .one {
+            .number-container {
                 position: relative;
-                width: 25px;
-                height: 105px;
-                background-color: var(--cor0);
-                border-radius: 3px;
-                transform: translateX(10px);
-                box-shadow: var(--box-shadow);
-
-                &::before {
-                    content: '';
+                width: 200px;
+                height: 100px;
+                
+                .one-one {
                     position: absolute;
-                    background-color: var(--cor0);
-                    border-radius: 4px;
-                    display: inline-block;
+                    top: 0;
+                    left: -16px;
+                    z-index: 1;
                     width: 20px;
                     height: 40px;
-                    transform: translateX(-17px) rotate(50deg);
-                    z-index: -1;
+                    background-color: var(--cor0);
+                    border-radius: 3px;
+                    transform: rotate(50deg);
+                    box-shadow: var(--box-shadow);
                 }
-                
-            }
 
-            .zero {
-                width: 105px;
-                height: 105px;
-                border-radius: 50%;
-                border: 25px solid var(--cor0);
-                box-shadow: var(--box-shadow);
-                z-index: -1;
+                .one-two {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 10;
+                    width: 24px;
+                    height: 100px;
+                    background-color: var(--cor0);
+                    border-radius: 3px;
+                    box-shadow: var(--box-shadow);
+                }
+    
+                .zero-one,
+                .zero-two {
+                    position: absolute;
+                    top: 0;
+                    left: 17px;
+                    z-index: 8;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    border: 24px solid var(--cor0);
+                    box-shadow: var(--box-shadow);
+                }
 
-                &:last-child {
-                    transform: translateX(-16px);
-                    z-index: -2;
+                .zero-two {
+                    z-index: 6;
+                    left: 100px;
                 }
             }
-        }
 
-        .text-container {
-            width: 100%;
-            height: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-
-            .days {
-                font-family: 'Courier New', monospace;
-                font-size: 5.5rem;
-                transform: translateX(-2px);
-                text-shadow: var(--text-shadow);
-                font-weight: 600;
-                line-height: 4rem;
-                color: var(--cor0);
-                margin-top: 7px;
+            .big {
+                position: relative;
+                display: block;
+                font-size: 82px;
+                line-height: 60px;
+                text-transform: uppercase;
+                font-weight: 700;
+                margin-top: 6px;
+                z-index: 20;
             }
 
-            .challenge {
-                font-family: 'Courier New', monospace;
-                font-size: 1.65rem;
-                font-weight: bolder;
-                color: var(--cor0);
-                text-align: center;
-                text-shadow: var(--text-shadow);
-                margin-top: 0;
-                transform: translateX(-3px);  
+            .small {
+                position: relative;
+                display: block;
+                font-size: 23px;
+                line-height: 20px;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: .04em;
+                z-index: 20;
             }
-        }
+        } 
     }
 }
