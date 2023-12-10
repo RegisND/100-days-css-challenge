@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:@600;400');
+
+:root {
+    --color-white: #fff;
+    --color-black: #606060;
+    --color-day-color: #949494;
+    --color-red: #fa7373;
+    --color-blue: #7ba3ff;
+    --color-green: #42a7a1;
+    --color-orange: #f1ba64;
+    --color-line: #f2f2f2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-white);
+    color: var(--color-white);
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    .frame {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+        background-color: var(--color-green);
+        border-radius: 4px;
+        box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+    
+        .card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 220px;
+            background-color: var(--color-white);
+            border-radius: 3px;
+            box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+
+            .header {
+                position: relative;
+                width: 100%;
+                height: 60px;
+                background: var(--color-orange);
+
+                .title {
+                    top: 12px;
+                    left: 15px;
+
+                    &.big {
+                        position: absolute;
+                        font-weight: 600;
+                        font-size: 14px;
+                        text-transform: uppercase;
+                    }
+                }
+                
+                .date {
+                    top: 30px;
+                    left: 15px;
+
+                    &.small {
+                        position: absolute;
+                        font-weight: 400;
+                        font-size: 11px;
+                    }
+                }
+
+                .type {
+                    top: 14px;
+                    right: 15px;
+
+                    &.small {
+                        position: absolute;
+                        font-weight: 400;
+                        font-size: 11px;
+                    }
+                }
+
+                .value {
+                    top: 28px;
+                    right: 15px;
+
+                    &.big {
+                        position: absolute;
+                        font-weight: 600;
+                        font-size: 14px;
+                        text-transform: uppercase; 
+                    }
+                }
+            }
+
+            .parameter {
+                text-align: right;
+                padding: 10px 0 14px 0;
+
+                > span {
+                    position: relative;
+                    font-size: 9px;
+                    color: var(--color-black);
+                    line-height: 13px;
+                    padding: 0 10px 0 25px;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 6px;
+                        left: 6px;
+                        display: block;
+                        width: 11px;
+                        height: 3px;
+                        border-radius: 3px;
+                    }
+                }
+
+                .red::before {
+                    background: var(--color-red);
+                }
+
+                .blue::before {
+                    background: var(--color-blue);
+                }
+            }
+
+            .statistic {
+                position: relative;
+                width: 260px;
+                height: 81px;
+                margin: 0 auto;
+
+                .line-1 {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 1px;
+                    background: var(--color-line);
+                }
+
+                .line-2 {
+                    position: absolute;
+                    top: 40px;
+                    left: 0;
+                    right: 0;
+                    height: 1px;
+                    background: var(--color-line);
+                }
+
+                .line-3 {
+                    position: absolute;
+                    top: inherit;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    height: 1px;
+                    background: var(--color-line);
+                }
+
+                .data {
+
+                    > svg {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+
+                        > polyline {
+                            fill: none;
+                            stroke-width: 2;
+                            stroke-linecap: round;
+                        }
+                    }
+                    
+                    &.red polyline {
+                        stroke: var(--color-red);
+                    }
+
+                    &.blue polyline {
+                        stroke: var(--color-blue);
+                    }
+
+                    .tooltip {
+                        position: absolute;
+                        left: 50%;
+                        bottom: 13px;
+                        transform: translate3d(-50%, 10px, 0);
+                        font-size: 11px;
+                        font-weight: 600;
+                        line-height: 11px;
+                        color: var(--color-white);
+                        padding: 8px 6px;
+                        border-radius: 3px;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: transform 0.4s ease-out 0s, opacity 0.4s ease-out 0s;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            display: block;
+                            width: 6px;
+                            height: 6px;
+                            left: 50%;
+                            bottom: -3px;
+                            margin-left: -3px;
+                            transform: rotate(45deg);
+                        }
+
+                    }
+
+                    [class^='point-'] {
+                        position: absolute;
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        z-index: 10;
+
+                        &:hover .tooltip {
+                            visibility: visible;
+                            opacity: 1;
+                            transform: translate3d(-50%, 0, 0);
+                        }
+
+                    }
+
+                    &.red {
+                        [class^='point-'],
+                        .tooltip,
+                        .tooltip::after {
+                            background: var(--color-red);
+                        }
+
+                        .point-1 { top: 43px; left: 7px; }
+                        .point-2 { top: 9px; left: 48px; }
+                        .point-3 { top: 20px; left: 88px; }
+                        .point-4 { top: 8px; left: 128px; }
+                        .point-5 { top: 35px; left: 169px; }
+                        .point-6 { top: 45px; left: 209px; }
+                        .point-7 { top: 16px; left: 249px; }
+                    }
+
+                    &.blue {
+                        [class^='point-'],
+                        .tooltip,
+                        .tooltip::after {
+                            background: var(--color-blue);
+                        }
+
+                        .point-1 { top: 58px; left: 7px; }
+                        .point-2 { top: 47px; left: 48px; }
+                        .point-3 { top: 62px; left: 88px; }
+                        .point-4 { top: 52px; left: 128px; }
+                        .point-5 { top: 58px; left: 169px; }
+                        .point-6 { top: 71px; left: 209px; }
+                        .point-7 { top: 61px; left: 249px; }
+                    }
+                }
+            }
+
+            .week-days {
+                width: 280px;
+                margin: 0 auto;
+
+                .day {
+                    display: block;
+                    float: left;
+                    width: calc(100% / 7);
+                    font-size: 9px;
+                    color: var(--color-day-color);
+                    line-height: 30px;
+                    text-transform: uppercase;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
